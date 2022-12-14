@@ -4,8 +4,8 @@ from sqlalchemy.ext.declarative import declarative_base
 
 tags_games = db.Table(
     "tags_games",
-    db.Column("tagId", db.Integer, db.ForeignKey("tags.id")),
-    db.Column("gameId", db.Integer, db.ForeignKey("games.id"))
+    db.Column("tagId", db.Integer, db.ForeignKey(add_prefix_for_prod("tags.id"))),
+    db.Column("gameId", db.Integer, db.ForeignKey(add_prefix_for_prod("games.id")))
 )
 
 if environment == "production":

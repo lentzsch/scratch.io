@@ -23,9 +23,9 @@ class Game(db.Model):
     avatarUrl = db.Column(db.String(255))
     githubUrl = db.Column(db.String(255))
     websiteUrl = db.Column(db.String(255))
-    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
-    teamId = db.Column(db.Integer, db.ForeignKey('teams.id'))
-    gameJamId = db.Column(db.Integer, db.ForeignKey('gamejams.id'))
+    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+    teamId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('teams.id')))
+    gameJamId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('gamejams.id')))
     tags = db.relationship(
         "Tag",
         secondary=tags_games,

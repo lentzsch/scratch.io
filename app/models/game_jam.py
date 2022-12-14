@@ -19,7 +19,7 @@ class GameJam(db.Model):
     userLimit = db.Column(db.Integer, nullable=False)
     startDate = db.Column(db.Date, nullable=False)
     endDate = db.Column(db.Date, nullable=False)
-    ownerId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+    ownerId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable = False)
 
     # One to Many
     owner = db.relationship(

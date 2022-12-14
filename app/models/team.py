@@ -16,7 +16,7 @@ class Team(db.Model):
     website = db.Column(db.String)
     github = db.Column(db.String)
     recruiting = db.Column(db.Boolean)
-    captainId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+    captainId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable = False)
 
     # One to Many
     captain = db.relationship(
