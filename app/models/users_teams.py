@@ -8,3 +8,6 @@ users_teams = db.Table(
     db.Column("userId", db.Integer, db.ForeignKey("users.id")),
     db.Column("teamId", db.Integer, db.ForeignKey("teams.id"))
 )
+
+if environment == "production":
+    users_teams.schema = SCHEMA

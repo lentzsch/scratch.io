@@ -8,6 +8,8 @@ skills_users = db.Table(
     db.Column("skillId", db.Integer, db.ForeignKey("skills.id"))
 )
 
+if environment == "production":
+    skills_users.schema = SCHEMA
 
 # db.Column('id', db.Integer, primary_key=True),
 #     db.Column("userId", db.Integer, db.ForeignKey("users.id")),

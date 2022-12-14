@@ -6,3 +6,6 @@ skills_teams = db.Table(
     db.Column("teamId", db.Integer, db.ForeignKey("teams.id")),
     db.Column("skillId", db.Integer, db.ForeignKey("skills.id"))
 )
+
+if environment == "production":
+    skills_teams.schema = SCHEMA

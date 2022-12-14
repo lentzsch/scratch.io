@@ -8,3 +8,6 @@ teams_gamejams = db.Table(
     db.Column("teamId", db.Integer, db.ForeignKey("teams.id")),
     db.Column("gameJamId", db.Integer, db.ForeignKey("gamejams.id"))
 )
+
+if environment == "production":
+    teams_gamejams.schema = SCHEMA

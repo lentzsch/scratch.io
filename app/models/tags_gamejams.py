@@ -7,3 +7,6 @@ tags_gamejams = db.Table(
     db.Column("tagId", db.Integer, db.ForeignKey("tags.id")),
     db.Column("gameJamId", db.Integer, db.ForeignKey("gamejams.id"))
 )
+
+if environment == "production":
+    tags_gamejams.schema = SCHEMA
