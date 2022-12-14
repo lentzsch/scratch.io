@@ -8,6 +8,10 @@ Create Date: 2021-06-01 11:12:51.261740
 from alembic import op
 import sqlalchemy as sa
 
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
+
 
 # revision identifiers, used by Alembic.
 revision = '453d8a552a79'
@@ -130,6 +134,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['gameId'], ['games.id'], ),
     sa.ForeignKeyConstraint(['tagId'], ['tags.id'], )
     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
