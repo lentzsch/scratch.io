@@ -1,4 +1,4 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 # from .users_games import users_games
 # from .games_gamejams import games_gamejams
 from .tags_games import tags_games

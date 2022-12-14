@@ -1,7 +1,7 @@
 from .teams_gamejams import teams_gamejams
 # from .games_gamejams import games_gamejams
 from .tags_gamejams import tags_gamejams
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class GameJam(db.Model):
     __tablename__ = "gamejams"
