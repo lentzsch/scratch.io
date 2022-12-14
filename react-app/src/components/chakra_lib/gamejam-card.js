@@ -5,7 +5,7 @@ import React from "react";
 
 export default function GameJamCard({cardStyle, cardProperties}) {
 
-        console.log(cardProperties);
+        // console.log(cardProperties);
 
     return (
         <>

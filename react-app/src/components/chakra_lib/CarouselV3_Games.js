@@ -14,7 +14,7 @@ export default function CarouselV3Games({games, setSlide, currentSlide}) {
       setSlide(games.games[0])
   }, [])
 
-    console.log(games.games[0].avatarUrl)
+    // console.log(games.games[0].avatarUrl)
   return (
     <div>
        <Carousel

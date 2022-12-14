@@ -3,7 +3,7 @@ import React from "react";
 import { Box, Stack, Image, Flex } from "@chakra-ui/react"
 
 export default function GJInfoBox({gamejam}) {
-        console.log(gamejam);
+        // console.log(gamejam);
     return (
         <Box className="main-container">
             <Box>

@@ -25,7 +25,7 @@ export default function TeamsBrowsingPage() {
             return
         }
         setCurrentSlide(teams[0])
-        console.log("TEAMS BROWSER TEAMS ------>", teams.teams)
+
     }, [teams])
 
 

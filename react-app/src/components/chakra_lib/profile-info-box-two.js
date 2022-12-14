@@ -28,21 +28,14 @@ export default function ProfileInfoBoxTwo() {
     const { id } = useParams()
     const [userSkills, setUserSkills] = useState(null)
 
-    // console.log("I'VE THE SKILLS", skills);
-
-    // console.log(skills);
-    // console.log("CHECK THIS OUT", users);
-
-
-    // console.log('CURRENT USER', user);
     useEffect(() => {
 
       if(!users) {
         return null
       } else {
-        // console.log('CURRENT USER', user?.skills);
+
         for (let key in users) {
-          // console.log("THIS IS THE ID", id);
+
           if (key === id) {
             setUserSkills(users[key])
           }

@@ -13,13 +13,12 @@ def users():
     game_jams = True if args["getJoinedGameJams"] == 'true' else False
 
     users = User.query.all()
-    # print(type(users))
+
     return {user.id: user.to_dict(skills=skills, teams=teams, game_jams=game_jams) for user in users}
 
 #  /api/users/:id
 @user_routes.route('/<int:id>')
 def user(id):
-    print("SOMETHING!!!!!!!!!!!!!!!", id)
     args = request.args
     teams = True if args["getJoinedTeams"] == 'true' else False
     skills = True if args["getJoinedSkills"] == 'true' else False

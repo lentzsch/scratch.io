@@ -8,7 +8,7 @@ export default function Carousel (){
     const [carouselPos, setCarouselPos] = useState(1);
 
     function handleCarouselPosition(newPos){
-        console.log("clicked", newPos)
+        // console.log("clicked", newPos)
         document.getElementById("maincarousel").style.setProperty("--position", newPos)
     }
 

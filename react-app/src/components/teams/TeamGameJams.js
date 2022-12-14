@@ -21,7 +21,7 @@ export default function TeamGameJams({ team }) {
             </Box>
             <Box className="team-game-jams-box">
                 {team.gamejams.map((gameJam) => {
-                    console.log("GAME JAM -------->", gameJam)
+
                     return (
                         <Box className="team-game-jam-info-card"
                             // bg={useColorModeValue('white', 'gray.800')}

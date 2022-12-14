@@ -63,7 +63,7 @@ export default function GameJamDrawer() {
     }
 
     const handleSubmitClick = (e) => {
-        console.log(`searchTags`, [...searchTags])
+        // console.log(`searchTags`, [...searchTags])
         const searchQuery = gameJamQuery({
             searchTerm: searchTerm,
             searchTags: [...searchTags],
@@ -88,7 +88,7 @@ export default function GameJamDrawer() {
         setSearchTags(state => {
             const set = new Set(state);
             set.delete(tag);
-            console.log("tag",tag)
+            // console.log("tag",tag)
             return set;
         });
     }

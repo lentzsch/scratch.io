@@ -74,7 +74,6 @@ def post_game_jam():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
-        print('data',data)
         new_game_jam = GameJam(
             name = data["name"],
             theme = data["theme"],
