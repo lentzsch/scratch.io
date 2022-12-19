@@ -27,11 +27,17 @@ def upgrade():
     sa.Column('name', sa.String(length=50), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE skills SET SCHEMA {SCHEMA};")
+
     op.create_table('tags',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=25), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE tags SET SCHEMA {SCHEMA};")
+
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=40), nullable=False),
@@ -46,6 +52,9 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+
     op.create_table('gamejams',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
@@ -61,6 +70,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['ownerId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE gamejams SET SCHEMA {SCHEMA};")
+
     op.create_table('skills_users',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=True),
@@ -69,6 +81,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE skills_users SET SCHEMA {SCHEMA};")
+
     op.create_table('teams',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=100), nullable=False),
@@ -82,6 +97,9 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE teams SET SCHEMA {SCHEMA};")
+
     op.create_table('games',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
@@ -98,6 +116,9 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE games SET SCHEMA {SCHEMA};")
+
     op.create_table('skills_teams',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('teamId', sa.Integer(), nullable=True),
@@ -106,6 +127,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['teamId'], ['teams.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE skills_teams SET SCHEMA {SCHEMA};")
+
     op.create_table('tags_gamejams',
     sa.Column('tagId', sa.Integer(), nullable=True),
     sa.Column('gameJamId', sa.Integer(), nullable=True),
@@ -120,6 +144,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['teamId'], ['teams.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE teams_gamejams SET SCHEMA {SCHEMA};")
+
     op.create_table('users_teams',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=True),
@@ -128,16 +155,20 @@ def upgrade():
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE users_teams SET SCHEMA {SCHEMA};")
+
     op.create_table('tags_games',
     sa.Column('tagId', sa.Integer(), nullable=True),
     sa.Column('gameId', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['gameId'], ['games.id'], ),
     sa.ForeignKeyConstraint(['tagId'], ['tags.id'], )
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE tags_games SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
-    if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
+    
 
 
 def downgrade():
