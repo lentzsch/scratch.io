@@ -117,7 +117,7 @@ def upgrade():
     sa.UniqueConstraint('name')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE production SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE games SET SCHEMA {SCHEMA};")
 
     op.create_table('skills_teams',
     sa.Column('id', sa.Integer(), nullable=False),
